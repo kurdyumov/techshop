@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'oracle'),
 
     /*
     |--------------------------------------------------------------------------
@@ -91,6 +91,20 @@ return [
             'prefix_indexes' => true,
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
+
+        'oracle' => [
+            'driver' => 'oracle',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '1521'),
+            'database' => env('DB_DATABASE', 'xe'),
+            'sid' => env('DB_SERVICE_NAME', 'XE'),
+            'username' => env('DB_USERNAME', 'c##_guest'),
+            'password' => env('DB_PASSWORD', 'guest'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            // 'session_mode' => 2,
+            'session_mode' => env('DB_SESSION_MODE', 2)
         ],
 
     ],
